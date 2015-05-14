@@ -4,11 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+This site occasionally contains geeky references (which may be unsuitable for regular people), unusual humor (which may be unsuitable for adults), and advanced mathematics or computer science subjects (which may be unsuitable for liberal-arts majors).
 
-### More Information
+Made with love from Chile.
 
-A place to include any other types of information that you'd like to include about yourself.
+### About the site
+
+The site was created using [Jekyll Now Theme](https://github.com/barryclark/jekyll-now) and [Github](https://github.com) to power its posts.
 
 ### Contact me
 
