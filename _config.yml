@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Sebastiandres
+name: Data Science
 
 # Short bio or description (displayed in the header)
-description: Learning the python ways
+description: en python y en español
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
+avatar: https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/images/logo.png
 
 #
 # Flags below are optional
