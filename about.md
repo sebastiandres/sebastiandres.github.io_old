@@ -4,7 +4,7 @@ title: Acerca
 permalink: /about/
 ---
 
-Este sitio pretende reunir y traducir al español información sobre Data Science.
+Este sitio pretende reunir y traducir al español información y librerías de python para Data Science.
 
 ### Acerca del sitio
 
