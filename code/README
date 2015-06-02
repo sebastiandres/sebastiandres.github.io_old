@@ -1,0 +1,13 @@
+README
+
+The files have been modified from http://christop.club/2014/02/21/blogging-with-ipython-and-jekyll/
+
+The file jekyll.py should be copied to ~/.ipython/profile_default
+
+The file jekyll.tpl should be copied to ~/.ipython/templates
+
+You can convert your ipython notebooks using
+
+$ ipython nbconvert --config jekyll.py path/to/file.ipython
+
+that will create the markdown file in the same folder, adding today's date as in jekyll notation.
