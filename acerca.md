@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Acerca
-permalink: /about/
+permalink: /acerca/
 ---
 
 Este sitio pretende reunir y traducir al español información y librerías de python para Data Science.
