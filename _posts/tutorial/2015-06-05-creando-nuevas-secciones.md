@@ -14,7 +14,7 @@ El enlace a agregar debería quedar junto a los otros enlaces:
 
 {% highlight html %}
 {% raw %}
-<a href="{{ site.baseurl }}/tutorial">Tutorial</a>
+<a href="{{ site.baseurl }}/tutorial">Tutoriales</a>
 {% endraw %}
 {% endhighlight %}
 
@@ -49,9 +49,10 @@ layout: page
 title: Tutoriales
 permalink: /tutorial/
 ---
-<div class="new_category">
+
+<div class="tutorials">
   {% for entry in site.categories.tutorial %}
-    <article class="new_tag">
+    <article class="tutorial">
       <h2><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></h2>
     </article>
   {% endfor %}

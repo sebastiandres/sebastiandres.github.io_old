@@ -4,9 +4,9 @@ title: Tutoriales
 permalink: /tutorial/
 ---
 
-<div class="new_category">
+<div class="tutorials">
   {% for entry in site.categories.tutorial %}
-    <article class="new_tag">
+    <article class="tutorial">
       <h2><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></h2>
     </article>
   {% endfor %}
