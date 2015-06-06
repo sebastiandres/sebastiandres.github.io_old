@@ -5,15 +5,72 @@ categories: [tutorial, jekyll]
 tags: jekyll, inline, code
 ---
 
-Hmm, lo que quiero es 
-{% highlight bash %} ssh-keygen -t rsa -b 4096 -C "name@domain.com" {% endhighlight %}
-Basta con aceptar las opciones por defecto.
+Hay distintas formas de mostrar código en Jekyll. Mostraré las que conozco
 
-Hmm, lo que quiero es `ssh-keygen -t rsa -b 4096 -C "name@domain.com"`
-Basta con aceptar las opciones por defecto.
+## Código en la misma línea
 
-Los enlaces (en inglés) que utilicé fueron los siguientes:
+Si queremos hablar de variables como `_nombre_muy_extrano_` o 
+de comandos del terminal como `ssh-keygen` o `grep`
+queremos que el texto tenga el formato correcto. 
+Para ello hay que utilizar "`". Por ejemplo, el texto anterior se crea con
+{% highlight bash %} 
+{% raw %} 
+Si queremos hablar de variables como `_nombre_muy_extrano_` o 
+de comandos del terminal como `ssh-keygen` o `grep`
+queremos que el texto tenga el formato correcto.
+{% endraw %} 
+{% endhighlight %}
 
- * [http://solvedstack.com/questions/git-push-username-password-how-to-avoid]()
+## Código que debe colorearse
+Si queremos mostrar código y que se muestre correctamente, como en el siguiente ejemplo
+{% highlight python %} 
+def foo(Bar,N=3):
+    print(Bar*N)
+    return
+foo(1)
+foo("a")
+{% endhighlight %}
+debemos utilizar el comando highlight de jekyll, de la siguiente manera
 
- * [https://help.github.com/articles/generating-ssh-keys/]()
+{% highlight text %} 
+{% raw %} 
+{% highlight python %} 
+def foo(Bar,N=3):
+    print(Bar*N)
+    return
+foo(1)
+foo("a")
+{% endhighlight %}
+{% endraw %} 
+{% endhighlight %}
+
+Además de python, podemos utilizar un sinnúmero de lenguajes.
+
+## Código que NO debe colorearse
+Si queremos mostrar texto plano, como en el siguiente ejemplo
+{% highlight text %} 
+def foo(Bar,N=3):
+    print(Bar*N)
+    return
+foo(1)
+foo("a")
+{% endhighlight %}
+debemos utilizar el comando highlight de jekyll, de la siguiente manera
+
+{% highlight text %} 
+{% raw %} 
+{% highlight text %} 
+def foo(Bar,N=3):
+    print(Bar*N)
+    return
+foo(1)
+foo("a")
+{% endhighlight %}
+{% endraw %} 
+{% endhighlight %}
+
+## Código que debe interpretarse
+.
+
+## Código que NO debe interpretarse
+.
