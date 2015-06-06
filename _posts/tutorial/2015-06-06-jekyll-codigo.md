@@ -72,7 +72,7 @@ foo("a")
 ## Código que debe interpretarse
 Para ejecutar código, es decir, escribir una expresión que debe evaluarse (en ruby) como por ejemplo
 `site.name` o `site.description`, utilizados en `_layouts/default.html`: 
-{% highlight bash %} 
+{% highlight text %} 
 Título del blog: {{ site.name }}
 Descripción del blog: {{ site.description }}
 {% endhighlight %}
