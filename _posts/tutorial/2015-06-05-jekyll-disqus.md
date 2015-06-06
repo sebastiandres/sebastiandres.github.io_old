@@ -14,7 +14,7 @@ Habilitar los comentarios en el sitio ha sido increiblemente sencillo.
 (3) Seleccionar la opción de Código General Embebido (Universal Emmbed code) y bucar el identificador (unique identifier).
 En mi caso, era simplemente "sebastiandres"
 
-(4) En el archivo **_config.yml**, en la línea correspondiente a disqus, agregar el identificador de disqus:
+(4) En el archivo `_config.yml`, en la línea correspondiente a disqus, agregar el identificador de disqus:
 {% highlight html %}
 {% raw %}
 disqus: sebastiandres

@@ -7,9 +7,9 @@ tags: jekyll, categoria
 
 Me costó encontrar información rápida para crear nuevas secciones en el blog, 
 como lo son las secciones de Tips y Tutoriales. En resumen, se llaman categorías y requieren la definición de varios archivos.
-Utilizaré como ejemplo la creación de la categoría **tutorial**:
+Utilizaré como ejemplo la creación de la categoría `tutorial`:
 
-(1) Agregar el link correspondiente a la nueva sección, en el archivo **./_layout/default.html**.
+(1) Agregar el link correspondiente a la nueva sección, en el archivo `./_layout/default.html`.
 El enlace a agregar debería quedar junto a los otros enlaces:
 
 {% highlight html %}
@@ -18,8 +18,8 @@ El enlace a agregar debería quedar junto a los otros enlaces:
 {% endraw %}
 {% endhighlight %}
 
-(2) Crear el layout de la nueva categoría. Para ello, basta crear un archivo **./_layout/tutorial.html**.
-Se pueden inspirar en el archivo **./_layout/post.html** ya presente en el directorio. Debería quedar algo del tipo:
+(2) Crear el layout de la nueva categoría. Para ello, basta crear un archivo `./_layout/tutorial.html`.
+Se pueden inspirar en el archivo `./_layout/post.html` ya presente en el directorio. Debería quedar algo del tipo:
 
 {% highlight html %}
 {% raw %}
@@ -39,7 +39,7 @@ layout: default
 {% endraw %}
 {% endhighlight %}
 
-(3) Crear un archivo **./tutorial.md**, que controla la vista en la página cuando se pincha en el enlace tutorial.
+(3) Crear un archivo `./tutorial.md`, que controla la vista en la página cuando se pincha en el enlace tutorial.
 Lo que hace este archivo es realizar una lista de los posts contenidos en la sección Tutoriales.
 Pueden pueden inspirarse del index.md, por ejemplo:
 {% highlight html %}
@@ -61,7 +61,7 @@ permalink: /tutorial/
 {% endhighlight %}
 
 (4) Realizar posts, aplicando la categoría creada. Resulta conveniente crear subcarpetas para tener todo ordenado, por ejemplo,
-el archivo que están leyendo corresponde a **./_posts/tutorial/2015-06-05-creando-nuevas-secciones.md** que tiene por encabezado:
+el archivo que están leyendo corresponde a `./_posts/tutorial/2015-06-05-creando-nuevas-secciones.md` que tiene por encabezado:
 
 {% highlight html %}
 {% raw %}

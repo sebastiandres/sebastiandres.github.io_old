@@ -6,9 +6,9 @@ tags: github, bitbucket, ssh
 ---
 
 Al iniciar un repositorio o clonar uno existente, terminamos con un repositorio que pide usuario y contraseña,
-puesto que viene definida del tipo **https://github.com/username/reponame**
+puesto que viene definida del tipo `https://github.com/username/reponame`
 
-¿Cómo evitar que cada **git push** solite el usuario y contraseña (en github)?
+¿Cómo evitar que cada `git push` solicite el usuario y contraseña (en github)?
 
 
 ### (1) Genera una llave rsa
@@ -18,7 +18,7 @@ ssh-keygen -t rsa -b 4096 -C "name@domain.com"
 {% endraw %}
 {% endhighlight %}
 Basta con aceptar las opciones por defecto.
-En ubuntu la llave típicamente está en **~/.ssh/id_rsa.pub**.
+En ubuntu la llave típicamente está en `~/.ssh/id_rsa.pub`.
 
 ### (2) Abre el archivo generado y copia el contenido
 {% highlight bash %}

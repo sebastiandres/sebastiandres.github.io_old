@@ -1,5 +1,6 @@
+.PHONY.: clean
 clean :
-	rm *.*~
-	rm */*.*~
-	rm */*/*.*~
-
+        @find . -name "*.*~" -delete
+        @find . -name "*.pyc" -delete
+        @find . -name "*.pyo" -delete
+        @rm -rf _site
