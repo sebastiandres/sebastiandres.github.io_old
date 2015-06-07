@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Creando categorias
+title: Creando categorias en Jekyll
 categories: [tutorial, jekyll] 
 tags: jekyll, categoria
 ---

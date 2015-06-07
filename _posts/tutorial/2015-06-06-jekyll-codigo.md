@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Código en Jekyll
+title: Poner código en Jekyll
 categories: [tutorial, jekyll] 
 tags: jekyll, inline, code
 ---
