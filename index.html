@@ -1,18 +1,20 @@
 ---
 layout: default
+title: Todos los posts
 ---
+<h1>Todos los posts:</h1>
 
-<div class="posts">
-  {% for post in site.categories.post %}
+<div class="home">
+  {% for entry in site.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <h3><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></h3>
 
       <div class="entry">
-        {{ post.excerpt }}
+        {{ entry.excerpt }}
       </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more"> Más...</a>
+      <a href="{{ site.baseurl }}{{ entry.url }}" class="read-more"> Más...</a>
     </article>
   {% endfor %}
 </div>

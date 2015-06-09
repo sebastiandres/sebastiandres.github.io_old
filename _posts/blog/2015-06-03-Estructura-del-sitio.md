@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estructura del sitio
-categories: post
+categories: blog
 ---
 
 Vaya que me tomó tiempo configurar todo. Entender los detalles de Jekyll un poco complicado, pero de a poco voy tomándole el tono.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ¡Hola Mundo!
-categories: post
+categories: blog
 ---
 
 Aquí parte el blog. Después de uno que otro problema con la configuración, ya puedo realizar posts en este blog utilizando github.io.
