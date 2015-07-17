@@ -5,8 +5,9 @@ categories: [tutorial, jekyll]
 tags: jekyll, ipynb, notebook
 ---
 
-Post publicado automáticamente. Archivo ipython notebook original <form method="get" action="file.doc" style="float:right"><button type="submit">OutputComplete.ipynb</button></form>
-<br>
+Post publicado automáticamente. Link al archivo ipython notebook original: 
+[OutputComplete.ipynb](https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/OutputComplete.ipynb).
+<hr>
 Este notebook de ipython contiene diversos tipos de elementos (código, imágenes, videos, html, etc.) 
 para poder indicar el modo de uso y ver cómo se transforman utilizando el "plugin" para jekyll.
 
