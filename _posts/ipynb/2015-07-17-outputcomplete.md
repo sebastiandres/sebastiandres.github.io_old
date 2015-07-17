@@ -4,10 +4,11 @@ title: "OutputComplete"
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---
-
-Post publicado automáticamente. Link al archivo ipython notebook original: 
-[OutputComplete.ipynb](https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/OutputComplete.ipynb).
-<hr>
+<div class="header">
+Link al archivo ipython notebook original:
+<a href="https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/OutputComplete.ipynb">OutputComplete.ipynb</a>.
+</div>
+<br>
 Este notebook de ipython contiene diversos tipos de elementos (código, imágenes, videos, html, etc.) 
 para poder indicar el modo de uso y ver cómo se transforman utilizando el "plugin" para jekyll.
 
