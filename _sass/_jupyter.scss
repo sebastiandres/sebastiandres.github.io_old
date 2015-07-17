@@ -1,9 +1,38 @@
 /* General table */
 
 table, th, td {
-    border: 1px solid black;
-    padding: 3px;
-}
+               border: 1px solid black;
+               padding: 3px;
+              }
+
+/* In[1] Input Prompt */
+.in-prompt {
+            color: #1212FF;
+           }
+
+/* Out[1] Output Prompt */
+.output-prompt {
+                color: #FF1212;
+               }
+
+/* In and Out Common Properties */
+.prompt-common {
+                float: left;
+                width:75px; 
+                clear:left; 
+                margin-left: -75px; 
+                margin-top: 5px; 
+               }
+
+/* Execute Results Output */
+.execute-results {
+                  background-color: rgba(210,200,200,0.5);
+                 }
+
+/* Execute Results Output */
+.stream {
+         background-color: rgba(210,200,200,0.5);
+        }
 
 /* Pretty Pandas Dataframes */
 .dataframe * {border-color: #c0c0c0 !important;}

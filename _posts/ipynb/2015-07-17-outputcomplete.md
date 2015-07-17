@@ -5,11 +5,12 @@ categories: [tutorial, jekyll]
 tags: jekyll, ipynb, notebook
 ---
 
-Archivo original [OutputComplete.ipynb | path]. <br>
+Post publicado automáticamente. Archivo ipython notebook original <form method="get" action="file.doc" style="float:right"><button type="submit">OutputComplete.ipynb</button></form>
+<br>
 Este notebook de ipython contiene diversos tipos de elementos (código, imágenes, videos, html, etc.) 
 para poder indicar el modo de uso y ver cómo se transforman utilizando el "plugin" para jekyll.
 
-## 1 - Código Markdown con diversidad de tags 
+## 1 - Código Markdown con diversidad de tags
 Con *italicas* y **negritas**, y listas
 
  * Uno
@@ -18,7 +19,7 @@ Con *italicas* y **negritas**, y listas
 
  * Tres
 
-## 2 - Código Markdown con mathjax 
+## 2 - Código Markdown con mathjax
 Variables en latex \\( \alpha \\) y \\( \beta \\). 
 
 También se pueden insertar fórmulas
@@ -30,68 +31,88 @@ F(b)-F(a) = \int\_{a}^{b} f(x)\, dx \approx \sum\_{k=1}^{N} \Delta x f(x\_{k})
 
 ## 3 - Código de python
 
-<div style="color:#1212FF">In [11]:</div>
+<div class="in-prompt prompt-common">In [3]:</div>
 
+<div class="input">
 {% highlight python %}
 # Sin output
 a = 2
-b = 3
+b = 3.14
+c = "string"
+d = True
+e = [1,2,3]
+f = {"vaca":"cow", "perro":"dog"}
 {% endhighlight %}
+</div>
 
-<div style="color:#1212FF">In [12]:</div>
+<div class="in-prompt prompt-common">In [4]:</div>
 
+<div class="input">
 {% highlight python %}
 # Con output correcto
 print(a)
 print(b)
+print(c)
+print(d)
+print(e)
+print(f)
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [12]:</div>
+<div class="output-prompt prompt-common">Out [4]:</div>
 
-{% highlight python %}
+<div class="stream">
+{% highlight text %}
 2
-3
+3.14
+string
+True
+[1, 2, 3]
+{'perro': 'dog', 'vaca': 'cow'}
 
 {% endhighlight %}
+</div>
 
-## 6 - Audio importado
+## 4 - Audio importado
 Trabajar con sonidos es sencillo. Simplemente se importa la clase Audio.
 
-<div style="color:#1212FF">In [13]:</div>
+<div class="in-prompt prompt-common">In [5]:</div>
 
+<div class="input">
 {% highlight python %}
 from IPython.display import Audio
 Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [13]:</div>
+<div class="output-prompt prompt-common">Out [5]:</div>
 
+<div class='execute_results'>
 
-<div align='center'>
                 <audio controls="controls" >
                     <source src="http://www.nch.com.au/acm/8k16bitpcm.wav" type="audio/x-wav" />
                     Your browser does not support the audio element.
                 </audio>
-              </div>
+</div>
 
-
-
-## 7 - Video importado
+## 5 - Video importado
 Para mostrar videos de youtube, es posible utilizar la clase respectiva.
 
-<div style="color:#1212FF">In [14]:</div>
+<div class="in-prompt prompt-common">In [6]:</div>
 
+<div class="input">
 {% highlight python %}
 from IPython.display import YouTubeVideo
 # a talk about IPython at Sage Days at U. Washington, Seattle.
 # Video credit: William Stein.
 YouTubeVideo('1j_HxD4iLn8')
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [14]:</div>
+<div class="output-prompt prompt-common">Out [6]:</div>
 
+<div class='execute_results'>
 
-<div align='center'>
         <iframe
             width="400"
             height="300"
@@ -99,16 +120,15 @@ YouTubeVideo('1j_HxD4iLn8')
             frameborder="0"
             allowfullscreen
         ></iframe>
-        </div>
+</div>
 
-
-
-## 9 - HTML desde código
+## 6 - HTML desde código
 
 Es posible utilizar la clase `HTML` para mostrar cualquier tipo de HTML.
 
-<div style="color:#1212FF">In [21]:</div>
+<div class="in-prompt prompt-common">In [7]:</div>
 
+<div class="input">
 {% highlight python %}
 from IPython.display import HTML
 s = """<table>
@@ -135,11 +155,12 @@ s = """<table>
 </table>"""
 HTML(s)
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [21]:</div>
+<div class="output-prompt prompt-common">Out [7]:</div>
 
-
-<div align='center'><table>
+<div class='execute_results'>
+<table>
 <tr>
 <th>Fecha</th>
 <th>Temperatura [°C]</th>
@@ -160,44 +181,49 @@ HTML(s)
 <td>26</td>
 <td>11</td>
 </tr>
-</table></div>
+</table>
+</div>
 
-
-
-## 10 - Pandas
+## 7 - Pandas
 
 También podemos utilizar pandas sin demasiado problema.
 
-<div style="color:#1212FF">In [16]:</div>
+<div class="in-prompt prompt-common">In [8]:</div>
 
+<div class="input">
 {% highlight python %}
 import pandas
 df = pandas.DataFrame({'impar' : [1., 3., 5.], 'par' : [2., 5., 7.]}, index=['a', 'b', 'c'])
 print(df)
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [16]:</div>
+<div class="output-prompt prompt-common">Out [8]:</div>
 
-{% highlight python %}
+<div class="stream">
+{% highlight text %}
    impar  par
 a      1    2
 b      3    5
 c      5    7
 
 {% endhighlight %}
+</div>
 
 Y podemos utilizar la versión HTML
 
-<div style="color:#1212FF">In [17]:</div>
+<div class="in-prompt prompt-common">In [9]:</div>
 
+<div class="input">
 {% highlight python %}
 df
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [17]:</div>
+<div class="output-prompt prompt-common">Out [9]:</div>
 
-
-<div align='center'><div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<div class='execute_results'>
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -224,24 +250,25 @@ df
     </tr>
   </tbody>
 </table>
-</div></div>
+</div>
+</div>
 
-
-
-## 11- Sitios externos
+## 8- Sitios externos
 Podemos incluir sitios externos.
 
-<div style="color:#1212FF">In [18]:</div>
+<div class="in-prompt prompt-common">In [10]:</div>
 
+<div class="input">
 {% highlight python %}
 from IPython.display import IFrame
 IFrame('http://en.mobile.wikipedia.org/?useformat=mobile', width='100%', height=300)
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [18]:</div>
+<div class="output-prompt prompt-common">Out [10]:</div>
 
+<div class='execute_results'>
 
-<div align='center'>
         <iframe
             width="100%"
             height="300"
@@ -249,27 +276,27 @@ IFrame('http://en.mobile.wikipedia.org/?useformat=mobile', width='100%', height=
             frameborder="0"
             allowfullscreen
         ></iframe>
-        </div>
+</div>
 
-
-
-## 12 - Error
+## 9 - Error
 Los errores se indican también en ipython.
 
-<div style="color:#1212FF">In [19]:</div>
+<div class="in-prompt prompt-common">In [11]:</div>
 
+<div class="input">
 {% highlight python %}
 # Con output de error
 print(unknown_variable)
 {% endhighlight %}
+</div>
 
-<div style="color:#FF1212">Out [19]:</div>
+<div class="output-prompt prompt-common">Out [11]:</div>
 
     ---------------------------------------------------------------------------
 
     NameError                                 Traceback (most recent call last)
 
-    <ipython-input-19-22fdec8b207f> in <module>()
+    <ipython-input-11-22fdec8b207f> in <module>()
           1 # Con output de error
     ----> 2 print(unknown_variable)
     
