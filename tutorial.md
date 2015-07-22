@@ -7,7 +7,7 @@ permalink: /tutorial/
 <div class="tutorials">
   <h1>Tutorial de Jekyll:</h1>
   <ul>
-  {% for entry in site.categories.tutorial %}
+  {% for entry in site.categories.tutorial reversed %}
     <article class="tutorial">
       <li><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
     </article>
@@ -18,7 +18,7 @@ permalink: /tutorial/
 <div class="notebook">
   <h1>Tutorial de ipython notebook:</h1>
   <ul>
-  {% for entry in site.categories.notebook %}
+  {% for entry in site.categories.notebook reversed %}
     <article class="notebook">
       <li><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></li>
     </article>

@@ -1,6 +1,8 @@
 ---
 layout: tutorial
 title: Intro a ipython notebook
+excerpt:
+search_omit: false
 categories: tutorial, python, notebook
 tags: ipython, notebook, jupyter
 ---

@@ -5,7 +5,7 @@ title: Todos los posts
 <h1>Todos los posts:</h1>
 
 <div class="home">
-  {% for entry in site.posts %}
+  {% for entry in site.posts limit:10%}
     <article class="post">
 
       <h3><a href="{{ site.baseurl }}{{ entry.url }}">{{ entry.title }}</a></h3>

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "OutputComplete"
+excerpt: "Ejemplo de ipython notebook transformado a jekyll markdown."
+search_omit: false
 categories: [tutorial, ipython, notebook] 
 tags: ipynb, notebook
 ---
