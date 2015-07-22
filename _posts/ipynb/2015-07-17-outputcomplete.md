@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "OutputComplete"
-categories: [tutorial, jekyll] 
-tags: jekyll, ipynb, notebook
+categories: [tutorial, ipython, notebook] 
+tags: ipynb, notebook
 ---
 <div class="header">
 Link al archivo ipython notebook original:
