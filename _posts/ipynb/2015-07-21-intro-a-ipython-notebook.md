@@ -49,7 +49,7 @@ for i, cell in enumerate(cells):
     print("\t keys: " + ", ".join(sorted(cell.keys())))
 {% endhighlight %}
 
-El código anterior es integrado en el siguiente [archivo ejecutable](https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/debug_ipynb.py).
+El código anterior es integrado en el siguiente [archivo ejecutable](https://github.com/sebastiandres/sebastiandres.github.io/blob/master/ipynb/debug_ipynb.py).
 
 La estructura de un archivo ipynb es el siguiente
 
