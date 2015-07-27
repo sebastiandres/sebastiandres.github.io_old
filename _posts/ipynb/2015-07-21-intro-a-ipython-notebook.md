@@ -27,11 +27,11 @@ Una buena galería de ejemplos puede encontrarse en el siguiente link:
 [galería de notebooks](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks).
 
 Github está soportando de manera nativa los ipython notebook. Si un archivo tiene extension ipynb, 
-se mostrará "ejecutado", como en el siguiente link: [ejemplo de ipython notebook](https://github.com/sebastiandres/sebastiandres.github.io/blob/master/ipynb/OutputComplete.ipynb).
+se mostrará "ejecutado", como en el siguiente link: [ejemplo de ipython notebook](https://github.com/sebastiandres/sebastiandres.github.io/blob/master/ipynb/Test-5-Tipos-de-celdas.ipynb).
 
 ## ¿De que está compuesto un ipython notebook?
 Un archivo ipython notebook tiene extensión ipynb, y es simplemente un archivo json.
-Es posible abrir el archivo como un archivo de texto, como en el siguiente link: [contenido de un ipython notebook](https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/OutputComplete.ipynb).
+Es posible abrir el archivo como un archivo de texto, como en el siguiente link: [contenido de un ipython notebook](https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/Test-5-Tipos-de-celdas.ipynb).
 De hecho, ¡podemos explorarlo directamente en python o mejor aún, en IPython!
 
 {% highlight python %}
