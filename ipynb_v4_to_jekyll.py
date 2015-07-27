@@ -150,7 +150,7 @@ def process_ipynb(my_file):
 
 for my_input_file in sys.argv[4:]:
     my_output_file = process_ipynb(my_input_file)
-    if  filename is not None:
+    if  my_input_file is not None:
         print("\nSuggested actions:")
         print("\tmv  {0}.md  _posts/\n".format(my_output_file))
         print("\tmv  {0}.ipynb  ipynb/\n".format(my_input_file))
