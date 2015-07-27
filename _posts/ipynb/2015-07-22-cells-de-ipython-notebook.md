@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Cells de ipynb notebook
-excerpt:
+excerpt: PENDIENTE ...
 search_omit: false
 categories: tutorial, python, notebook
 tags: ipython, notebook, jupyter

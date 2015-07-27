@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test-5-Tipos-de-celdas"
-excerpt: 
+excerpt: Este notebook de ipython contiene diversos tipos de elementos (código, imágenes, videos, html, etc.)...
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---

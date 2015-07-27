@@ -1,7 +1,7 @@
 ---
 layout: tutorial
 title: Intro a ipython notebook
-excerpt:
+excerpt: Hace ya bastante tiempo que llevo usando ipython notebooks, pero no me había dado el tiempo de explorarlos con detalle.
 search_omit: false
 categories: tutorial, python, notebook
 tags: ipython, notebook, jupyter
@@ -86,6 +86,7 @@ Un archivo ipython (versión 4) es un diccionario con las siguientes llaves:
 
 En los siguientes posts exploraremos con mayor profundidad la estructura del notebook:
 
- * [Tipos de celdas](link) (pendiente).
- * [Convertir desde ipython notebook a markdown para jekyll](link) (pendiente)
+ * [Tipos de celdas](../cells-de-ipython-notebook)
+
+ * [Convertir desde ipython notebook a markdown para jekyll](../de-ipynb-a-jekyll)
 
