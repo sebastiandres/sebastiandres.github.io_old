@@ -26,10 +26,10 @@ Actualmente está funcionando para todos los ejemplos que he tratado:
  * [Tipos de celdas](../test-5-tipos-de-celdas)
 
 Al realizarlo he tomado las siguientes consideraciones:
+
  * Las imágenes que no son linkeadas se incluyen como código en el contenido. A pesar que ipython notebook genera imágenes, prefiero incluirlas directamente para mover únicamente el archivo markdown generado y no preocuparme de nada más.
  * Conversión de fórmulas desde el formato en ipython notebook (latex puro) a mathjax.
 
-
-[Blog de mobeets sobre jekyll-ipython-markdown](https://github.com/mobeets/jekyll-ipython-markdown)
-
-[Documentación de nbconvert](http://nbconvert.readthedocs.org/en/latest/customizing.html)
+Algunos links de interés:
+ * [Blog de mobeets sobre jekyll-ipython-markdown](https://github.com/mobeets/jekyll-ipython-markdown)
+ * [Documentación de nbconvert](http://nbconvert.readthedocs.org/en/latest/customizing.html)

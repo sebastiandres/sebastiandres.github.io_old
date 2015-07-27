@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test-4-Errores"
-excerpt: 
+excerpt: En este ipython notebook examinaremos tipos de errores en ipython notebook.
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---

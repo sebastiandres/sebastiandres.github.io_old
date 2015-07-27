@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test-3-Formulas"
-excerpt: 
+excerpt: Fórmulas matemáticas convertidas automáticamente.
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---

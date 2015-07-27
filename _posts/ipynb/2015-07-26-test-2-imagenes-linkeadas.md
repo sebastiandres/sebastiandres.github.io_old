@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test-2-Imagenes-Linkeadas"
-excerpt: 
+excerpt: En este post/notebook exploraremos cómo insertar imágenes ya existentes.
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---

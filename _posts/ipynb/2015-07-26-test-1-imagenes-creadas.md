@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test-1-Imagenes-Creadas"
-excerpt: 
+excerpt: En este post/notebook exploraremos cómo insertar imágenes que son creadas dinámicamente.
 categories: [tutorial, jekyll] 
 tags: jekyll, ipynb, notebook
 ---

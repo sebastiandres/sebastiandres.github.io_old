@@ -13,19 +13,16 @@ Link al archivo ipython notebook original:
 Este notebook de ipython contiene diversos tipos de elementos (código, imágenes, videos, html, etc.) 
 para poder indicar el modo de uso y ver cómo se transforman utilizando el "plugin" para jekyll.
 
-## 1 - Código Markdown con diversidad de tags 
+## 1 - Código Markdown con diversidad de tags
 Con *italicas* y **negritas**, y listas
-
 
  * Uno
 
-
  * Dos
-
 
  * Tres
 
-## 2 - Código Markdown con mathjax 
+## 2 - Código Markdown con mathjax
 Variables en latex \\( \alpha \\) y \\( \beta \\). 
 
 También se pueden insertar fórmulas
@@ -37,40 +34,52 @@ F(b)-F(a) = \int\_{a}^{b} f(x)\, dx \approx \sum\_{k=1}^{N} \Delta x f(x\_{k})
 
 ## 3 - Código de python
 
-<div class="in-prompt prompt-common">In [1]:</div>
+<div class="in-prompt prompt-common">In [3]:</div>
 
 <div class="input">
 {% highlight python %}
 # Sin output
 a = 2
-b = 3
+b = 3.14
+c = "string"
+d = True
+e = [1,2,3]
+f = {"vaca":"cow", "perro":"dog"}
 {% endhighlight %}
 </div>
 
-<div class="in-prompt prompt-common">In [2]:</div>
+<div class="in-prompt prompt-common">In [4]:</div>
 
 <div class="input">
 {% highlight python %}
 # Con output correcto
 print(a)
 print(b)
+print(c)
+print(d)
+print(e)
+print(f)
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [2]:</div>
+<div class="output-prompt prompt-common">Out [4]:</div>
 
 <div class="stream">
 {% highlight text %}
 2
-3
+3.14
+string
+True
+[1, 2, 3]
+{'perro': 'dog', 'vaca': 'cow'}
 
 {% endhighlight %}
 </div>
 
-## 6 - Audio importado
+## 4 - Audio importado
 Trabajar con sonidos es sencillo. Simplemente se importa la clase Audio.
 
-<div class="in-prompt prompt-common">In [3]:</div>
+<div class="in-prompt prompt-common">In [5]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -79,7 +88,7 @@ Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [3]:</div>
+<div class="output-prompt prompt-common">Out [5]:</div>
 
 <div class='execute_results'>
 
@@ -89,10 +98,10 @@ Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
                 </audio>
 </div>
 
-## 7 - Video importado
+## 5 - Video importado
 Para mostrar videos de youtube, es posible utilizar la clase respectiva.
 
-<div class="in-prompt prompt-common">In [4]:</div>
+<div class="in-prompt prompt-common">In [6]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -103,7 +112,7 @@ YouTubeVideo('1j_HxD4iLn8')
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [4]:</div>
+<div class="output-prompt prompt-common">Out [6]:</div>
 
 <div class='execute_results'>
 
@@ -116,44 +125,38 @@ YouTubeVideo('1j_HxD4iLn8')
         ></iframe>
 </div>
 
-## 9 - HTML desde código
+## 6 - HTML desde código
 
-Python objects can declare HTML representations that will be displayed in the Notebook. If you have some HTML you want to display, simply use the `HTML` class.
-
-<div class="in-prompt prompt-common">In [5]:</div>
-
-<div class="input">
-{% highlight python %}
-from IPython.display import HTML
-{% endhighlight %}
-</div>
-
-<div class="in-prompt prompt-common">In [6]:</div>
-
-<div class="input">
-{% highlight python %}
-s = """<table>
-<tr>
-<th>Header 1</th>
-<th>Header 2</th>
-</tr>
-<tr>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
-</tr>
-<tr>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
-</tr>
-</table>"""
-{% endhighlight %}
-</div>
+Es posible utilizar la clase `HTML` para mostrar cualquier tipo de HTML.
 
 <div class="in-prompt prompt-common">In [7]:</div>
 
 <div class="input">
 {% highlight python %}
-h = HTML(s); h
+from IPython.display import HTML
+s = """<table>
+<tr>
+<th>Fecha</th>
+<th>Temperatura [°C]</th>
+<th>Humedad [%]</th>
+</tr>
+<tr>
+<td>Ayer</td>
+<td>12</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Hoy</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Mañana</td>
+<td>26</td>
+<td>11</td>
+</tr>
+</table>"""
+HTML(s)
 {% endhighlight %}
 </div>
 
@@ -162,88 +165,57 @@ h = HTML(s); h
 <div class='execute_results'>
 <table>
 <tr>
-<th>Header 1</th>
-<th>Header 2</th>
+<th>Fecha</th>
+<th>Temperatura [°C]</th>
+<th>Humedad [%]</th>
 </tr>
 <tr>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
+<td>Ayer</td>
+<td>12</td>
+<td>32</td>
 </tr>
 <tr>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
+<td>Hoy</td>
+<td>20</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Mañana</td>
+<td>26</td>
+<td>11</td>
 </tr>
 </table>
 </div>
 
-## 10 - Pandas
+## 7 - Pandas
 
-Pandas makes use of this capability to allow `DataFrames` to be represented as HTML tables.
-
+También podemos utilizar pandas sin demasiado problema.
 
 <div class="in-prompt prompt-common">In [8]:</div>
 
 <div class="input">
 {% highlight python %}
 import pandas
-{% endhighlight %}
-</div>
-
-Here is a small amount of stock data for APPL:
-
-<div class="in-prompt prompt-common">In [9]:</div>
-
-<div class="input">
-{% highlight python %}
-%%file data.csv
-Date,Open,High,Low,Close,Volume,Adj Close
-2012-06-01,569.16,590.00,548.50,584.00,14077000,581.50
-2012-05-01,584.90,596.76,522.18,577.73,18827900,575.26
-2012-04-02,601.83,644.00,555.00,583.98,28759100,581.48
-2012-03-01,548.17,621.45,516.22,599.55,26486000,596.99
-2012-02-01,458.41,547.61,453.98,542.44,22001000,540.12
-2012-01-03,409.40,458.24,409.00,456.48,12949100,454.53
-{% endhighlight %}
-</div>
-
-<div class="output-prompt prompt-common">Out [9]:</div>
-
-<div class="stream">
-{% highlight text %}
-Writing data.csv
-
-{% endhighlight %}
-</div>
-
-Read this as into a `DataFrame`:
-
-<div class="in-prompt prompt-common">In [10]:</div>
-
-<div class="input">
-{% highlight python %}
-df = pandas.read_csv('data.csv')
+df = pandas.DataFrame({'impar' : [1., 3., 5.], 'par' : [2., 5., 7.]}, index=['a', 'b', 'c'])
 print(df)
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [10]:</div>
+<div class="output-prompt prompt-common">Out [8]:</div>
 
 <div class="stream">
 {% highlight text %}
-         Date    Open    High     Low   Close    Volume  Adj Close
-0  2012-06-01  569.16  590.00  548.50  584.00  14077000     581.50
-1  2012-05-01  584.90  596.76  522.18  577.73  18827900     575.26
-2  2012-04-02  601.83  644.00  555.00  583.98  28759100     581.48
-3  2012-03-01  548.17  621.45  516.22  599.55  26486000     596.99
-4  2012-02-01  458.41  547.61  453.98  542.44  22001000     540.12
-5  2012-01-03  409.40  458.24  409.00  456.48  12949100     454.53
+   impar  par
+a      1    2
+b      3    5
+c      5    7
 
 {% endhighlight %}
 </div>
 
-And view the HTML representation:
+Y podemos utilizar la versión HTML
 
-<div class="in-prompt prompt-common">In [11]:</div>
+<div class="in-prompt prompt-common">In [9]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -251,7 +223,7 @@ df
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [11]:</div>
+<div class="output-prompt prompt-common">Out [9]:</div>
 
 <div class='execute_results'>
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -259,87 +231,35 @@ df
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Adj Close</th>
+      <th>impar</th>
+      <th>par</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2012-06-01</td>
-      <td>569.16</td>
-      <td>590.00</td>
-      <td>548.50</td>
-      <td>584.00</td>
-      <td>14077000</td>
-      <td>581.50</td>
+      <th>a</th>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2012-05-01</td>
-      <td>584.90</td>
-      <td>596.76</td>
-      <td>522.18</td>
-      <td>577.73</td>
-      <td>18827900</td>
-      <td>575.26</td>
+      <th>b</th>
+      <td>3</td>
+      <td>5</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2012-04-02</td>
-      <td>601.83</td>
-      <td>644.00</td>
-      <td>555.00</td>
-      <td>583.98</td>
-      <td>28759100</td>
-      <td>581.48</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2012-03-01</td>
-      <td>548.17</td>
-      <td>621.45</td>
-      <td>516.22</td>
-      <td>599.55</td>
-      <td>26486000</td>
-      <td>596.99</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2012-02-01</td>
-      <td>458.41</td>
-      <td>547.61</td>
-      <td>453.98</td>
-      <td>542.44</td>
-      <td>22001000</td>
-      <td>540.12</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2012-01-03</td>
-      <td>409.40</td>
-      <td>458.24</td>
-      <td>409.00</td>
-      <td>456.48</td>
-      <td>12949100</td>
-      <td>454.53</td>
+      <th>c</th>
+      <td>5</td>
+      <td>7</td>
     </tr>
   </tbody>
 </table>
 </div>
 </div>
 
-## 11- Sitios externos
+## 8- Sitios externos
+Podemos incluir sitios externos.
 
-You can even embed an entire page from another site in an iframe; for example this is today's Wikipedia
-page for mobile users:
-
-<div class="in-prompt prompt-common">In [12]:</div>
+<div class="in-prompt prompt-common">In [10]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -348,7 +268,7 @@ IFrame('http://en.mobile.wikipedia.org/?useformat=mobile', width='100%', height=
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [12]:</div>
+<div class="output-prompt prompt-common">Out [10]:</div>
 
 <div class='execute_results'>
 
@@ -361,9 +281,10 @@ IFrame('http://en.mobile.wikipedia.org/?useformat=mobile', width='100%', height=
         ></iframe>
 </div>
 
-## 12 - Error
+## 9 - Error
+Los errores se indican también en ipython.
 
-<div class="in-prompt prompt-common">In [13]:</div>
+<div class="in-prompt prompt-common">In [11]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -372,13 +293,13 @@ print(unknown_variable)
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [13]:</div>
+<div class="output-prompt prompt-common">Out [11]:</div>
 
     ---------------------------------------------------------------------------
 
     NameError                                 Traceback (most recent call last)
 
-    <ipython-input-13-22fdec8b207f> in <module>()
+    <ipython-input-11-22fdec8b207f> in <module>()
           1 # Con output de error
     ----> 2 print(unknown_variable)
     
