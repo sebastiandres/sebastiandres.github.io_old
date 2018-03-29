@@ -25,7 +25,7 @@ def load_ipynb(ipynb_file):
 
 if __name__=="__main__":
     if len(argv)==2 and (argv[1][-6:]==".ipynb"):
-	load_ipynb(argv[1])
+        load_ipynb(argv[1])
     else:
         print("Wrong. Use as in ")
         print("python debug_ipynb.py my_file.ipynb")
