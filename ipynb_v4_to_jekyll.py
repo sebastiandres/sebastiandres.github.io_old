@@ -78,13 +78,22 @@ def sanitize_markdown(string):
 
 def process_execute_result(output_dict):
     image_template = "<img src='data:image/{0};base64,{1}'/>"
-    text = "no TEXT/HTML  in dic"
     if ("data" in output_dict):       
         if ("text/plain" in output_dict["data"]):
-            text = output_dict["data"]["text/plain"]
-            text = text.rstrip()
-            text = text.replace("<","&lt;") 
-            text = text.replace(">","&gt;") 
+            if output_dict["data"]["text/plain"]=="<VegaLite 2 object>":
+                div_name = "viz_{}".format(output_dict["execution_count"])
+                text  = """  <!-- Container for the visualization -->\n"""
+                text += """  <div id="vis"></div>\n"""
+                text += """  <div id="{}"></div>\n""".format(div_name)
+                text += """  <script>\n""".format(div_name)
+                text += """  var vlSpec = {\n"""
+                text += str(output_dict['data']['application/vnd.vegalite.v2+json'])
+                text += """vegaEmbed("#{}", vlSpec);\n</script>""".format(div_name)
+            else:
+                text = output_dict["data"]["text/plain"]
+                text = text.rstrip()
+                text = text.replace("<","&lt;") 
+                text = text.replace(">","&gt;") 
         if ("text/html" in output_dict["data"]):
             text = output_dict["data"]["text/html"]
             text = text.rstrip()
@@ -97,6 +106,8 @@ def process_execute_result(output_dict):
             print("Something was not processed")
             print(output_dict)
             print("-"*80)
+    else:
+        text = "no TEXT/HTML  in dic"
     return text
 
 def debugger(var):
