@@ -82,19 +82,19 @@ def process_execute_result(output_dict):
         if ("text/plain" in output_dict["data"]):
             if output_dict["data"]["text/plain"]=="<VegaLite 2 object>":
                 div_name = "viz_{}".format(output_dict["execution_count"])
-                text  = """  <!-- Container for the visualization -->\n"""
-                text += """  <div id="vis"></div>\n"""
-                text += """  <div id="{}"></div>\n""".format(div_name)
-                text += """  <script>\n""".format(div_name)
-                text += """  var vlSpec = {\n"""
-                text += str(output_dict['data']['application/vnd.vegalite.v2+json'])
-                text += """vegaEmbed("#{}", vlSpec);\n</script>""".format(div_name)
+                var_name = "vlSpec_{}".format(output_dict["execution_count"])
+                text  = '  <!-- Container for the visualization -->\n'
+                text += '  <div id="{}"></div>\n'.format(div_name)
+                text += '  <script>\n'
+                text += '  var {0} = \n'.format(var_name)
+                text += str(output_dict['data']['application/vnd.vegalite.v2+json']) + ";\n\n"
+                text += 'vegaEmbed("#{0}", {1});\n</script>'.format(div_name, var_name)
             else:
                 text = output_dict["data"]["text/plain"]
                 text = text.rstrip()
                 text = text.replace("<","&lt;") 
                 text = text.replace(">","&gt;") 
-        if ("text/html" in output_dict["data"]):
+        elif ("text/html" in output_dict["data"]):
             text = output_dict["data"]["text/html"]
             text = text.rstrip()
         elif ("image/jpeg" in output_dict["data"]):
@@ -124,7 +124,7 @@ def debugger(var):
     return str(var)
  
 def path2support(path):
-    """Turn a file path into a URL"""
+    'Turn a file path into a URL'
     print("-o"*40)
     print(path)
     print(path.keys())
