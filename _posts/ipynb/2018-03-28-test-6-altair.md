@@ -14,7 +14,7 @@ Este notebook de jupyter lab contiene diversos graficos en Altair que se convier
 
 ## 1 - Grafico simple
 
-<div class="in-prompt prompt-common">In [5]:</div>
+<div class="in-prompt prompt-common">In [1]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -34,22 +34,55 @@ chart
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [5]:</div>
+<div class="output-prompt prompt-common">Out [1]:</div>
 
 <div class='execute_results'>
   <!-- Container for the visualization -->
-  <div id="viz_5"></div>
+  <div id="viz_1"></div>
   <script>
-  var vlSpec_5 = 
+  var vlSpec_1 = 
 {'$schema': 'https://vega.github.io/schema/vega-lite/v2.json', 'config': {'view': {'height': 300, 'width': 400}}, 'data': {'values': [{'a': 'A', 'b': 28}, {'a': 'B', 'b': 55}, {'a': 'C', 'b': 43}]}, 'encoding': {'x': {'field': 'b', 'type': 'quantitative'}, 'y': {'field': 'a', 'type': 'nominal'}}, 'mark': 'bar'};
 
-vegaEmbed("#viz_5", vlSpec_5);
+vegaEmbed("#viz_1", vlSpec_1);
+</script>
+</div>
+
+<div class="in-prompt prompt-common">In [3]:</div>
+
+<div class="input">
+{% highlight python %}
+from altair import Chart
+import pandas as pd
+
+data = pd.DataFrame({
+    'a': ['A', 'B', 'C'],
+    'b': [28, 55, 43]
+})
+
+chart = Chart(data).mark_bar().encode(
+    x='a',
+    y='b',
+)
+chart
+{% endhighlight %}
+</div>
+
+<div class="output-prompt prompt-common">Out [3]:</div>
+
+<div class='execute_results'>
+  <!-- Container for the visualization -->
+  <div id="viz_3"></div>
+  <script>
+  var vlSpec_3 = 
+{'$schema': 'https://vega.github.io/schema/vega-lite/v2.json', 'config': {'view': {'height': 300, 'width': 400}}, 'data': {'values': [{'a': 'A', 'b': 28}, {'a': 'B', 'b': 55}, {'a': 'C', 'b': 43}]}, 'encoding': {'x': {'field': 'a', 'type': 'nominal'}, 'y': {'field': 'b', 'type': 'quantitative'}}, 'mark': 'bar'};
+
+vegaEmbed("#viz_3", vlSpec_3);
 </script>
 </div>
 
 ## 2 - Grafico de datos de conjunto de Anscombe
 
-<div class="in-prompt prompt-common">In [6]:</div>
+<div class="in-prompt prompt-common">In [2]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -70,16 +103,16 @@ chart
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [6]:</div>
+<div class="output-prompt prompt-common">Out [2]:</div>
 
 <div class='execute_results'>
   <!-- Container for the visualization -->
-  <div id="viz_6"></div>
+  <div id="viz_2"></div>
   <script>
-  var vlSpec_6 = 
+  var vlSpec_2 = 
 {'$schema': 'https://vega.github.io/schema/vega-lite/v2.json', 'config': {'view': {'height': 300, 'width': 400}}, 'data': {'values': [{'Series': 'I', 'X': 10, 'Y': 8.04}, {'Series': 'I', 'X': 8, 'Y': 6.95}, {'Series': 'I', 'X': 13, 'Y': 7.58}, {'Series': 'I', 'X': 9, 'Y': 8.81}, {'Series': 'I', 'X': 11, 'Y': 8.33}, {'Series': 'I', 'X': 14, 'Y': 9.96}, {'Series': 'I', 'X': 6, 'Y': 7.24}, {'Series': 'I', 'X': 4, 'Y': 4.26}, {'Series': 'I', 'X': 12, 'Y': 10.84}, {'Series': 'I', 'X': 7, 'Y': 4.8100000000000005}, {'Series': 'I', 'X': 5, 'Y': 5.68}, {'Series': 'II', 'X': 10, 'Y': 9.14}, {'Series': 'II', 'X': 8, 'Y': 8.14}, {'Series': 'II', 'X': 13, 'Y': 8.74}, {'Series': 'II', 'X': 9, 'Y': 8.77}, {'Series': 'II', 'X': 11, 'Y': 9.26}, {'Series': 'II', 'X': 14, 'Y': 8.1}, {'Series': 'II', 'X': 6, 'Y': 6.13}, {'Series': 'II', 'X': 4, 'Y': 3.1}, {'Series': 'II', 'X': 12, 'Y': 9.13}, {'Series': 'II', 'X': 7, 'Y': 7.26}, {'Series': 'II', 'X': 5, 'Y': 4.74}, {'Series': 'III', 'X': 10, 'Y': 7.46}, {'Series': 'III', 'X': 8, 'Y': 6.77}, {'Series': 'III', 'X': 13, 'Y': 12.74}, {'Series': 'III', 'X': 9, 'Y': 7.11}, {'Series': 'III', 'X': 11, 'Y': 7.8100000000000005}, {'Series': 'III', 'X': 14, 'Y': 8.84}, {'Series': 'III', 'X': 6, 'Y': 6.08}, {'Series': 'III', 'X': 4, 'Y': 5.39}, {'Series': 'III', 'X': 12, 'Y': 8.15}, {'Series': 'III', 'X': 7, 'Y': 6.42}, {'Series': 'III', 'X': 5, 'Y': 5.73}, {'Series': 'IV', 'X': 8, 'Y': 6.58}, {'Series': 'IV', 'X': 8, 'Y': 5.76}, {'Series': 'IV', 'X': 8, 'Y': 7.71}, {'Series': 'IV', 'X': 8, 'Y': 8.84}, {'Series': 'IV', 'X': 8, 'Y': 8.47}, {'Series': 'IV', 'X': 8, 'Y': 7.04}, {'Series': 'IV', 'X': 8, 'Y': 5.25}, {'Series': 'IV', 'X': 19, 'Y': 12.5}, {'Series': 'IV', 'X': 8, 'Y': 5.5600000000000005}, {'Series': 'IV', 'X': 8, 'Y': 7.91}, {'Series': 'IV', 'X': 8, 'Y': 6.89}]}, 'encoding': {'column': {'field': 'Series', 'type': 'nominal'}, 'x': {'field': 'X', 'scale': {'zero': False}, 'type': 'quantitative'}, 'y': {'field': 'Y', 'scale': {'zero': False}, 'type': 'quantitative'}}, 'height': 150, 'mark': 'circle', 'width': 150};
 
-vegaEmbed("#viz_6", vlSpec_6);
+vegaEmbed("#viz_2", vlSpec_2);
 </script>
 </div>
 
