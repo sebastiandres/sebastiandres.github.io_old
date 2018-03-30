@@ -17,6 +17,8 @@ except ImportError:
 from datetime import date
 import sys
 import os
+import json
+
 from IPython import embed
 
 def find_all(a_str, sub):
@@ -58,7 +60,7 @@ def latex2mathjax(string):
     string = replace_marker(string, "\\textbf", "\\mathbf")
     # Replace all \textrm by \mathsf
     string = replace_marker(string, "\\textrm", "\\mathsf")
-    # Replace all \[ /] 
+    # Replace all \[ /]
     string = replace_marker(string, "\\\\[", "\n\\\\[ ")
     string = replace_marker(string, "\\\\]", " \\\\]\n")
     # Replace all $$ formula $$
@@ -72,28 +74,32 @@ def latex2mathjax(string):
 def sanitize_markdown(string):
     # Convert all latex to mathjax
     sanitized_1 = latex2mathjax(string)
-    # 
+    #
     sanitized = sanitized_1
     return sanitized
 
 def process_execute_result(output_dict):
     image_template = "<img src='data:image/{0};base64,{1}'/>"
-    if ("data" in output_dict):       
+    if ("data" in output_dict):
         if ("text/plain" in output_dict["data"]):
             if output_dict["data"]["text/plain"]=="<VegaLite 2 object>":
+                # Variables
                 div_name = "viz_{}".format(output_dict["execution_count"])
                 var_name = "vlSpec_{}".format(output_dict["execution_count"])
+                aux_dict = output_dict['data']['application/vnd.vegalite.v2+json']
+                json_str = json.dumps(aux_dict, indent=4)
+                # Formated text
                 text  = '  <!-- Container for the visualization -->\n'
                 text += '  <div id="{}"></div>\n'.format(div_name)
                 text += '  <script>\n'
                 text += '  var {0} = \n'.format(var_name)
-                text += str(output_dict['data']['application/vnd.vegalite.v2+json']) + ";\n\n"
+                text += json_str + ";\n\n"
                 text += 'vegaEmbed("#{0}", {1});\n</script>'.format(div_name, var_name)
             else:
                 text = output_dict["data"]["text/plain"]
                 text = text.rstrip()
-                text = text.replace("<","&lt;") 
-                text = text.replace(">","&gt;") 
+                text = text.replace("<","&lt;")
+                text = text.replace(">","&gt;")
         elif ("text/html" in output_dict["data"]):
             text = output_dict["data"]["text/html"]
             text = text.rstrip()
@@ -122,7 +128,7 @@ def debugger(var):
             print("\t"+key)
             #print("\t\t"+str(gdict[key]))
     return str(var)
- 
+
 def path2support(path):
     'Turn a file path into a URL'
     print("-o"*40)
@@ -144,15 +150,15 @@ def process_ipynb(my_file):
     dirname = os.path.dirname(f)
     basename = os.path.basename(f).lower().replace("_","-").replace(" ","-")
     f  = os.path.join(dirname, date_str + basename.lower()) # Use today's date in the filename
-    # Configure everything 
+    # Configure everything
     c = get_config()
     c.NbConvertApp.export_format = 'markdown'
     c.MarkdownExporter.template_path = ['.']
     c.MarkdownExporter.template_file = 'ipynb_v4_to_jekyll'
     c.MarkdownExporter.filters = {
-                                  'process_execute_result': process_execute_result, 
+                                  'process_execute_result': process_execute_result,
                                   'sanitize_markdown':sanitize_markdown,
-                                  'path2support': path2support, 
+                                  'path2support': path2support,
                                   'debugger': debugger,
                                  }
     c.NbConvertApp.output_base = f #dirname # "trash" #f.lower().replace(' ', '-')
