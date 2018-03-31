@@ -97,7 +97,7 @@ Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
 ## 5 - Video importado
 Para mostrar videos de youtube, es posible utilizar la clase respectiva.
 
-<div class="in-prompt prompt-common">In [6]:</div>
+<div class="in-prompt prompt-common">In [1]:</div>
 
 <div class="input">
 {% highlight python %}
@@ -108,10 +108,10 @@ YouTubeVideo('1j_HxD4iLn8')
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [6]:</div>
+<div class="output-prompt prompt-common">Out [1]:</div>
 
 <div class='execute_results'>
-&lt;IPython.lib.display.YouTubeVideo at 0x7fa7a9a00358&gt;
+&lt;IPython.lib.display.YouTubeVideo at 0x7f9bb9033588&gt;
 </div>
 
 ## 6 - HTML desde código
@@ -203,19 +203,19 @@ c      5    7
 ## 8- Sitios externos
 Podemos incluir sitios externos.
 
-<div class="in-prompt prompt-common">In [10]:</div>
+<div class="in-prompt prompt-common">In [2]:</div>
 
 <div class="input">
 {% highlight python %}
 from IPython.display import IFrame
-IFrame('http://en.mobile.wikipedia.org/?useformat=mobile', width='100%', height=300)
+IFrame('http://www.wikipedia.org/', width='100%', height=300)
 {% endhighlight %}
 </div>
 
-<div class="output-prompt prompt-common">Out [10]:</div>
+<div class="output-prompt prompt-common">Out [2]:</div>
 
 <div class='execute_results'>
-&lt;IPython.lib.display.IFrame at 0x7fa7a9a2dda0&gt;
+&lt;IPython.lib.display.IFrame at 0x7f9bb8764828&gt;
 </div>
 
 ## 9 - Error
