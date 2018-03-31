@@ -7,13 +7,15 @@
 ---
 layout: post
 title: "{{resources['metadata']['name']}}"
-excerpt: 
-categories: [tutorial, jekyll] 
+excerpt:
+categories: [tutorial, jekyll]
 tags: jekyll, ipynb, notebook
 ---
 <div class="header">
 Link al archivo ipython notebook original:
-<a href="https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/{{resources['metadata']['name']}}.ipynb">{{resources['metadata']['name']}}.ipynb</a>.
+<a href="https://github.com/sebastiandres/sebastiandres.github.io/blob/master/ipynb/{{resources['metadata']['name']}}.ipynb" download>{{resources['metadata']['name']}}.ipynb</a>.
+|
+<a href="https://raw.githubusercontent.com/sebastiandres/sebastiandres.github.io/master/ipynb/{{resources['metadata']['name']}}.ipynb" download>Descargar</a>.
 </div>
 <br>
 {%- endblock header -%}
@@ -24,14 +26,14 @@ Link al archivo ipython notebook original:
 {% block markdowncell scoped %}
 {{ cell.source | sanitize_markdown }}
 {% endblock markdowncell %}
- 
+
 ###############################################################################
 # CODE CELL INPUTS
 ###############################################################################
 {% block in_prompt %}
 <div class="in-prompt prompt-common">In [{{ cell.execution_count }}]:</div>
 {% endblock in_prompt %}
-  
+
 {% block input %}
 <div class="input">
 {{ '{% highlight python %}' }}
@@ -82,7 +84,7 @@ Link al archivo ipython notebook original:
 {{ output | process_execute_result }})
 <br>
 {% endblock data_jpg %}
- 
+
 ###############################################################################
 # UNUSED BLOCKS (BLOCKS THAT I DON'T UNDERSTAND AND I'M NOT USING SO FAR)
 ###############################################################################
@@ -97,7 +99,7 @@ block pyout\n
 block pyerr
 {{ super() }}
 {% endblock pyerr %}
- 
+
 {% block data_svg %}
 block data_svg
 ![svg]({{ output.svg_filename | path2support }})
@@ -113,17 +115,17 @@ block data_latex
 block data_html scoped
 {{ output.html }}
 {% endblock data_html %}
- 
+
 {% block data_text scoped %}
 block data_text scoped
 {{ output.text | indent }}
 {% endblock data_text %}
- 
+
 {% block headingcell scoped %}
 block headingcell scoped
 {{ '#' * cell.level }} {{ cell.source | replace('\n', ' ') }}
 {% endblock headingcell %}
- 
+
 {% block unknowncell scoped %}
 block unknowncell scoped
 unknown type  {{ cell.type }}
