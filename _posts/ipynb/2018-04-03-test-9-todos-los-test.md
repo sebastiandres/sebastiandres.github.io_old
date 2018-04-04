@@ -17,22 +17,17 @@ para poder indicar el modo de uso y ver cómo se transforman utilizando el "plug
 
 ## 1 - Código Markdown con diversidad de tags
 Con *italicas* y **negritas**, y listas
-
  * Uno
-
  * Dos
-
  * Tres
 
 ## 2 - Código Markdown con mathjax
-Variables en latex \\( \alpha \\) y \\( \beta \\). 
+Variables en latex $\alpha$ y $\beta$. 
 
 También se pueden insertar fórmulas
-
-\\[ 
-F(b)-F(a) = \int\_{a}^{b} f(x)\, dx \approx \sum\_{k=1}^{N} \Delta x f(x\_{k})
- \\]
-
+$$
+F(b)-F(a) = \int_{a}^{b} f(x)\, dx \approx \sum_{k=1}^{N} \Delta x f(x_{k})
+$$
 
 ## 3 - Código de python
 
@@ -93,11 +88,12 @@ Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
 <div class="output-prompt prompt-common">Out [3]:</div>
 
 <div class='execute_results'>
-
+<div>
                 <audio controls="controls" >
                     <source src="http://www.nch.com.au/acm/8k16bitpcm.wav" type="audio/x-wav" />
                     Your browser does not support the audio element.
                 </audio>
+              </div>
 </div>
 
 ## 5 - Video importado
@@ -117,7 +113,7 @@ YouTubeVideo('1j_HxD4iLn8')
 <div class="output-prompt prompt-common">Out [4]:</div>
 
 <div class='execute_results'>
-
+<div>
         <iframe
             width="400"
             height="300"
@@ -125,6 +121,7 @@ YouTubeVideo('1j_HxD4iLn8')
             frameborder="0"
             allowfullscreen
         ></iframe>
+        </div>
 </div>
 
 ## 6 - HTML desde código
@@ -286,7 +283,7 @@ IFrame('http://www.wikipedia.org/', width='100%', height=300)
 <div class="output-prompt prompt-common">Out [8]:</div>
 
 <div class='execute_results'>
-
+<div>
         <iframe
             width="100%"
             height="300"
@@ -294,6 +291,7 @@ IFrame('http://www.wikipedia.org/', width='100%', height=300)
             frameborder="0"
             allowfullscreen
         ></iframe>
+        </div>
 </div>
 
 ## 9 - Error
