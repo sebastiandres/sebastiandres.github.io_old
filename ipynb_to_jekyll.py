@@ -121,9 +121,6 @@ def process_execute_result(output_dict):
                 text += 'vegaEmbed("#{0}", {1});\n</script>'.format(div_name, var_name)
             elif is_audio_video_or_iframe(output_dict["data"]["text/plain"]):
                 text = "<div>" + output_dict["data"]["text/html"] + "</div>"
-                #text = text.rstrip()
-                #text = text.replace("<","&lt;")
-                #text = text.replace(">","&gt;")
             else:
                 message = "Unrecognized format with data. Using defaults."
                 print("\t" + message)
