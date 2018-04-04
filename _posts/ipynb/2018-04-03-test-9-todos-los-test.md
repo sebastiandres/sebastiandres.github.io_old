@@ -94,10 +94,10 @@ Audio(url="http://www.nch.com.au/acm/8k16bitpcm.wav")
 
 <div class='execute_results'>
 
-                &lt;audio controls="controls" &gt;
-                    &lt;source src="http://www.nch.com.au/acm/8k16bitpcm.wav" type="audio/x-wav" /&gt;
+                <audio controls="controls" >
+                    <source src="http://www.nch.com.au/acm/8k16bitpcm.wav" type="audio/x-wav" />
                     Your browser does not support the audio element.
-                &lt;/audio&gt;
+                </audio>
 </div>
 
 ## 5 - Video importado
@@ -118,13 +118,13 @@ YouTubeVideo('1j_HxD4iLn8')
 
 <div class='execute_results'>
 
-        &lt;iframe
+        <iframe
             width="400"
             height="300"
             src="https://www.youtube.com/embed/1j_HxD4iLn8"
             frameborder="0"
             allowfullscreen
-        &gt;&lt;/iframe&gt;
+        ></iframe>
 </div>
 
 ## 6 - HTML desde código
@@ -165,7 +165,6 @@ HTML(s)
 <div class="output-prompt prompt-common">Out [5]:</div>
 
 <div class='execute_results'>
-Unrecognized format with data. Using defaults.<br>
 <table>
 <tr>
 <th>Fecha</th>
@@ -229,7 +228,6 @@ df
 <div class="output-prompt prompt-common">Out [7]:</div>
 
 <div class='execute_results'>
-Unrecognized format with data. Using defaults.<br>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -289,13 +287,13 @@ IFrame('http://www.wikipedia.org/', width='100%', height=300)
 
 <div class='execute_results'>
 
-        &lt;iframe
+        <iframe
             width="100%"
             height="300"
             src="http://www.wikipedia.org/"
             frameborder="0"
             allowfullscreen
-        &gt;&lt;/iframe&gt;
+        ></iframe>
 </div>
 
 ## 9 - Error

@@ -120,15 +120,14 @@ def process_execute_result(output_dict):
                 text += json_str + ";\n\n"
                 text += 'vegaEmbed("#{0}", {1});\n</script>'.format(div_name, var_name)
             elif is_audio_video_or_iframe(output_dict["data"]["text/plain"]):
-                text = output_dict["data"]["text/html"]
-                text = text.rstrip()
-                text = text.replace("<","&lt;")
-                text = text.replace(">","&gt;")
+                text = "<div>" + output_dict["data"]["text/html"] + "</div>"
+                #text = text.rstrip()
+                #text = text.replace("<","&lt;")
+                #text = text.replace(">","&gt;")
             else:
                 message = "Unrecognized format with data. Using defaults."
                 print("\t" + message)
-                text = message + "<br>\n"
-                text += output_dict["data"]["text/html"]
+                text = output_dict["data"]["text/html"]
                 print("*"*80)
                 print(output_dict)
                 print("*"*80)
@@ -218,6 +217,7 @@ def process_ipynb(my_file):
 for my_input_file in sys.argv[3:]:
     if  my_input_file is not None:
         my_output_file = process_ipynb(my_input_file)
-        #print("\nSuggested actions:")
-        #print("\tmv  {0}.md  _posts/\n".format(my_output_file))
-        #print("\tmv  {0}.ipynb  ipynb/\n".format(my_input_file))
+        print("\nSuggested actions:")
+        print("\tCommit the changes.")
+        print("\tVisit the blog: https://sebastiandres.github.io/")
+        print("\tVisit the repository: https://github.com/sebastiandres/sebastiandres.github.io")
