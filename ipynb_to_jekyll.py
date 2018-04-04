@@ -5,6 +5,8 @@ Usage:
 ipython nbconvert --config ipynb_v4_to_jekyll.py path/to/My_Notebook.ipynb
 Output :
 path/to/yyyy-mm-dd-my-notebook.md
+
+# http://nbconvert.readthedocs.io/en/latest/customizing.html
 """
 
 try:
@@ -51,6 +53,7 @@ def replace_marker(string, marker, left_marker, right_marker=None):
 
 def latex2mathjax(string):
     """
+    Converts the declared latex to mathjax notation.
     """
     # Correctly indent the lists
     string = replace_marker(string, "\n*", "\n\n*")
@@ -72,17 +75,38 @@ def latex2mathjax(string):
     return string
 
 def sanitize_markdown(string):
+    """
+    Sanitize the markdown, when needed
+    """
     # Convert all latex to mathjax
-    sanitized_1 = latex2mathjax(string)
-    #
-    sanitized = sanitized_1
+    sanitized = latex2mathjax(string)
     return sanitized
 
+def is_audio_video_or_iframe(text_plain):
+    """
+    Auxiliar method to process all known html types
+    """
+    if text_plain == "<IPython.lib.display.Audio object>":
+        print("\tProcessing an Audio object from execution cell.")
+        return True
+    if text_plain[:33] == "<IPython.lib.display.YouTubeVideo":
+        print("\tProcessing a Youtube video object from execution cell.")
+        return True
+    if text_plain[:27] == "<IPython.lib.display.IFrame":
+        print("\tProcessing an IFrame from execution cell.")
+        return True
+    return False
+
+
 def process_execute_result(output_dict):
+    """
+    Process all the execution cells, returning the text here computed.
+    """
     image_template = "<img src='data:image/{0};base64,{1}'/>"
     if ("data" in output_dict):
         if ("text/plain" in output_dict["data"]):
             if output_dict["data"]["text/plain"]=="<VegaLite 2 object>":
+                print("\tProcessing a Vega lite from execution cell")
                 # Variables
                 div_name = "viz_{}".format(output_dict["execution_count"])
                 var_name = "vlSpec_{}".format(output_dict["execution_count"])
@@ -95,25 +119,34 @@ def process_execute_result(output_dict):
                 text += '  var {0} = \n'.format(var_name)
                 text += json_str + ";\n\n"
                 text += 'vegaEmbed("#{0}", {1});\n</script>'.format(div_name, var_name)
-            else:
-                text = output_dict["data"]["text/plain"]
+            elif is_audio_video_or_iframe(output_dict["data"]["text/plain"]):
+                text = output_dict["data"]["text/html"]
                 text = text.rstrip()
                 text = text.replace("<","&lt;")
                 text = text.replace(">","&gt;")
+            else:
+                message = "Unrecognized format with data. Using defaults."
+                print("\t" + message)
+                text = message + "<br>\n"
+                text += output_dict["data"]["text/html"]
+                print("*"*80)
+                print(output_dict)
+                print("*"*80)
         elif ("text/html" in output_dict["data"]):
+            print("\tProcessing an html object")
             text = output_dict["data"]["text/html"]
             text = text.rstrip()
         elif ("image/jpeg" in output_dict["data"]):
+            print("\tProcessing a jpeg image")
             text = image_template.format("jpeg",output_dict["data"]["image/jpeg"])
         elif ("image/png" in output_dict["data"]):
+            print("\tProcessing a png image")
             text = image_template.format("png",output_dict["data"]["image/png"])
         else:
-            print("-"*80)
-            print("Something was not processed")
-            print(output_dict)
-            print("-"*80)
+            print("\tUnrecognized format. Using defauts.")
+            text = "Unrecognized format.<br>\n"
     else:
-        text = "no TEXT/HTML  in dic"
+        text = "no TEXT/HTML in dic"
     return text
 
 def debugger(var):
@@ -130,7 +163,9 @@ def debugger(var):
     return str(var)
 
 def path2support(path):
-    'Turn a file path into a URL'
+    """
+    Turn a file path into a URL.
+    """
     print("-o"*40)
     print(path)
     print(path.keys())
@@ -141,33 +176,48 @@ def path2support(path):
     return file_url
 
 def process_ipynb(my_file):
+    """
+    Processing the ipython notebook
+    """
     if not my_file.endswith('.ipynb'):
-        print(my_file)
+        print("File {} is not a notebook (or lacks proper format)".format(my_file))
         return
+    else:
+        print("Processing the notebook {}".format(my_file))
+    # Default options
+    default_date_str = date.today().strftime('%Y-%m-%d')
+    default_directory = './_posts/'
+    # Ask what do you want to do
+    date_message = "\tWhat date do you want for the post [default:{}]: "
+    chosen_date = input(date_message.format(default_date_str)) or default_date_str
+    directory_message = "\tWhere to write the post [default:{}]: "
+    chosen_build_directory = input(directory_message.format(default_directory)) or default_directory
     # Otherwise, we can carry on
-    date_str = date.today().strftime('%Y-%m-%d-')
     f = my_file.split('.ipynb')[0]
     dirname = os.path.dirname(f)
     basename = os.path.basename(f).lower().replace("_","-").replace(" ","-")
-    f  = os.path.join(dirname, date_str + basename.lower()) # Use today's date in the filename
+    output_filename  = os.path.join(dirname, chosen_date + "-" + basename.lower())
     # Configure everything
     c = get_config()
     c.NbConvertApp.export_format = 'markdown'
     c.MarkdownExporter.template_path = ['.']
-    c.MarkdownExporter.template_file = 'ipynb_v4_to_jekyll'
+    c.MarkdownExporter.template_file = 'ipynb_to_jekyll'
     c.MarkdownExporter.filters = {
                                   'process_execute_result': process_execute_result,
                                   'sanitize_markdown':sanitize_markdown,
                                   'path2support': path2support,
-                                  'debugger': debugger,
+                                  #'debugger': debugger,
                                  }
-    c.NbConvertApp.output_base = f #dirname # "trash" #f.lower().replace(' ', '-')
-    c.FilesWriter.build_directory = "." #os.path.join(".", dirname)
-    return f
+    c.NbConvertApp.output_base = output_filename
+    c.FilesWriter.build_directory = chosen_build_directory
+    return output_filename
 
-for my_input_file in sys.argv[4:]:
-    my_output_file = process_ipynb(my_input_file)
+################################################################################
+# Run the main processing function for all the files
+################################################################################
+for my_input_file in sys.argv[3:]:
     if  my_input_file is not None:
-        print("\nSuggested actions:")
-        print("\tmv  {0}.md  _posts/\n".format(my_output_file))
-        print("\tmv  {0}.ipynb  ipynb/\n".format(my_input_file))
+        my_output_file = process_ipynb(my_input_file)
+        #print("\nSuggested actions:")
+        #print("\tmv  {0}.md  _posts/\n".format(my_output_file))
+        #print("\tmv  {0}.ipynb  ipynb/\n".format(my_input_file))
