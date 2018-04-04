@@ -55,6 +55,7 @@ def latex2mathjax(string):
     """
     Converts the declared latex to mathjax notation.
     """
+    """
     # Correctly indent the lists
     string = replace_marker(string, "\n*", "\n\n*")
     string = replace_marker(string, "\n *", "\n\n *")
@@ -72,6 +73,7 @@ def latex2mathjax(string):
     string = replace_marker(string, "$", "\\\\( ", " \\\\)")
     # Replace all remaining _ with \n
     string = replace_marker(string, "_", "\\_")
+    """
     return string
 
 def sanitize_markdown(string):
