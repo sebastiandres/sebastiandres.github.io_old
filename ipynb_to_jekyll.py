@@ -64,9 +64,9 @@ def latex2mathjax(string):
     # Replace all \textrm by \mathsf
     #string = replace_marker(string, "\\textrm", "\\mathsf")
     # Replace all $$ formula $$
-    string = replace_marker(string, "$$", "\n\\[ ", " \\]\n")
+    string = replace_marker(string, "$$", "\n\\\\[ ", "\\\\]\n")
     # Replace all remaining $ formula $
-    string = replace_marker(string, "$", "\\( ", " \\)")
+    string = replace_marker(string, "$", "\\\\( ", " \\\\)")
     return string
 
 def sanitize_markdown(string):
