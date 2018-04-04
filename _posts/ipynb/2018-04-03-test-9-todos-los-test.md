@@ -22,12 +22,14 @@ Con *italicas* y **negritas**, y listas
  * Tres
 
 ## 2 - Código Markdown con mathjax
-Variables en latex $\alpha$ y $\beta$. 
+Variables en latex \( \alpha \) y \( \beta \). 
 
 También se pueden insertar fórmulas
-$$
+
+\[ 
 F(b)-F(a) = \int_{a}^{b} f(x)\, dx \approx \sum_{k=1}^{N} \Delta x f(x_{k})
-$$
+ \]
+
 
 ## 3 - Código de python
 

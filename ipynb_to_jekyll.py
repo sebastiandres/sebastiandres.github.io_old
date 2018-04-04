@@ -55,25 +55,18 @@ def latex2mathjax(string):
     """
     Converts the declared latex to mathjax notation.
     """
-    """
     # Correctly indent the lists
-    string = replace_marker(string, "\n*", "\n\n*")
-    string = replace_marker(string, "\n *", "\n\n *")
-    string = replace_marker(string, "\n  *", "\n\n  *")
+    #string = replace_marker(string, "\n*", "\n\n*")
+    #string = replace_marker(string, "\n *", "\n\n *")
+    #string = replace_marker(string, "\n  *", "\n\n  *")
     # Replace all \textbf by \mathbf
-    string = replace_marker(string, "\\textbf", "\\mathbf")
+    #string = replace_marker(string, "\\textbf", "\\mathbf")
     # Replace all \textrm by \mathsf
-    string = replace_marker(string, "\\textrm", "\\mathsf")
-    # Replace all \[ /]
-    string = replace_marker(string, "\\\\[", "\n\\\\[ ")
-    string = replace_marker(string, "\\\\]", " \\\\]\n")
+    #string = replace_marker(string, "\\textrm", "\\mathsf")
     # Replace all $$ formula $$
-    string = replace_marker(string, "$$", "\n\\\\[ ", " \\\\]\n")
+    string = replace_marker(string, "$$", "\n\\[ ", " \\]\n")
     # Replace all remaining $ formula $
-    string = replace_marker(string, "$", "\\\\( ", " \\\\)")
-    # Replace all remaining _ with \n
-    string = replace_marker(string, "_", "\\_")
-    """
+    string = replace_marker(string, "$", "\\( ", " \\)")
     return string
 
 def sanitize_markdown(string):
